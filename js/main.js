@@ -5,6 +5,12 @@ function handleNav() {
   iframe.height = '884px';
   const lis = document.querySelectorAll('.nav-item:not(.mid_logo)');
   const main = document.querySelector('main')
+  function addIframe(height,src,backgroundColor,iframe,container) {
+    iframe.height =height;
+    iframe.src = src;
+    iframe.style.backgroundColor = backgroundColor
+    container.append(iframe);
+  }
   lis.forEach((element) => {
     element.addEventListener('click',(e) => {
       const choice = e.target.innerText;
@@ -13,40 +19,22 @@ function handleNav() {
       const iframe = document.createElement('iframe');
       switch (choice) {
         case '首页':
-          iframe.height ='884px';
-          iframe.src = 'html/homePage.html';
-          iframe.style.backgroundColor = '#f7f6f4'
-          main.append(iframe);
+            addIframe('884px','html/homePage.html','#f7f6f4',iframe,main);
         break;
         case '品牌和产品':
-          iframe.height = '1070';
-          iframe.src = 'html/brandOfProduct.html';
-          iframe.style.backgroundColor = '#f7f6f4';
-          main.append(iframe);
+          addIframe('1070','html/brandOfProduct.html','#f7f6f4',iframe,main);
         break;
         case '联合营作':
-          iframe.height ='565px';
-          iframe.style.backgroundColor = '#f7f6f4'
-          iframe.src = 'html/jointVentureCooperation.html';
-          main.append(iframe);
+          addIframe('565px','html/jointVentureCooperation.html','#f7f6f4',iframe,main);
         break;
         case '配套服务':
-          iframe.height ='1200px';
-          iframe.style.backgroundColor = '#fff'
-          iframe.src = 'html/supportingServices.html';
-          main.append(iframe);
+          addIframe('1200px','html/supportingServices.html','#fff',iframe,main);
         break;
         case '门店信息':
-          iframe.height ='1415px';
-          iframe.style.backgroundColor = '#fff'
-          iframe.src = 'html/storeInformation.html';
-          main.append(iframe);
+          addIframe('1415px','html/storeInformation.html','#fff',iframe,main);
         break;
         default:
-          iframe.height ='560px';
-          iframe.style.backgroundColor = '#f7f6f4'
-          iframe.src = 'html/aboutUs.html';
-          main.append(iframe);
+          addIframe('560px','html/aboutUs.html','#f7f6f4',iframe,main);
         break;
       }
       e.stopPropagation();
@@ -86,9 +74,8 @@ function play() {
     }
     autoPlay();
   })
-  rightArrow.addEventListener('click',(e) => {
+  rightArrow.addEventListener('click',() => {
     clearInterval(intervalId);
-    e.stopPropagation();
     currentIndex = (currentIndex % maxIndex) + 1;
     if (currentIndex === 1) {
       img.src = `imgs/banner${currentIndex}.png`;

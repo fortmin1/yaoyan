@@ -311,7 +311,7 @@ footer {
 /*以下为配套服务样式*/
 .service_content {
     width: 975px;
-    height: 900px;
+    height: 1200px;
     margin: 0 auto;
     background: #f7f6f4;
 }
@@ -329,6 +329,7 @@ footer {
 
 /*以下为门店信息样式*/
 .info_content {
+    position: relative;
     width: 975px;
     height: 1415px;
     margin: 0 auto;
@@ -353,6 +354,19 @@ footer {
     line-height: 30px;
     width: 440px;
     height: 380px;
+}
+.count {
+    width: 80px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    top: -50px;
+    left: 360px;
+    z-index: 0;
+    text-align: center;
+    font-size: 30px;
+    font-family: "黑体", serif;
 }
 .left_one img {
     width: 440px;
@@ -410,6 +424,51 @@ footer {
 .right_six {
     height: 100px;
 }
+.pop-window {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 900px;
+    height: 600px;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+.close {
+    width: 40px;
+    height: 40px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 40px;
+    background: rgba(0, 0, 0, 0.8);
+    font-size: 40px;
+    font-family: "微软雅黑", serif;
+    color: #fff;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    cursor: pointer;
+}
+.slider {
+    width: 612px;
+    height: 408px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.left-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.right-button {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-100%,-50%);
+}
+
 /*以下为关于我们样式*/
 .aboutUs_content {
     width: 975px;
