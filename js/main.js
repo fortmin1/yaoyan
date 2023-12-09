@@ -4,39 +4,49 @@ function handleNav() {
   const iframe = document.querySelector('iframe');
   iframe.height = '884px';
   const lis = document.querySelectorAll('.nav-item:not(.mid_logo)');
+  const main = document.querySelector('main')
   lis.forEach((element) => {
     element.addEventListener('click',(e) => {
       const choice = e.target.innerText;
+      const htmliFrameElementBefore = document.querySelector('iframe');
+      htmliFrameElementBefore.remove();
+      const iframe = document.createElement('iframe');
       switch (choice) {
         case '首页':
           iframe.height ='884px';
-          iframe.style.backgroundColor = '#f7f6f4'
           iframe.src = 'html/homePage.html';
+          iframe.style.backgroundColor = '#f7f6f4'
+          main.append(iframe);
         break;
         case '品牌和产品':
-          iframe.height ='1070px';
-          iframe.style.backgroundColor = '#f7f6f4'
+          iframe.height = '1070';
           iframe.src = 'html/brandOfProduct.html';
+          iframe.style.backgroundColor = '#f7f6f4';
+          main.append(iframe);
         break;
         case '联合营作':
           iframe.height ='565px';
           iframe.style.backgroundColor = '#f7f6f4'
           iframe.src = 'html/jointVentureCooperation.html';
+          main.append(iframe);
         break;
         case '配套服务':
           iframe.height ='1200px';
           iframe.style.backgroundColor = '#fff'
           iframe.src = 'html/supportingServices.html';
+          main.append(iframe);
         break;
         case '门店信息':
           iframe.height ='1415px';
           iframe.style.backgroundColor = '#fff'
           iframe.src = 'html/storeInformation.html';
+          main.append(iframe);
         break;
         default:
           iframe.height ='560px';
           iframe.style.backgroundColor = '#f7f6f4'
           iframe.src = 'html/aboutUs.html';
+          main.append(iframe);
         break;
       }
       e.stopPropagation();
@@ -66,9 +76,8 @@ function play() {
     },1500)
   }
   autoPlay();
-  leftArrow.addEventListener('click',(e) => {
+  leftArrow.addEventListener('click',() => {
     clearInterval(intervalId);
-    e.stopPropagation();
     currentIndex = (currentIndex - 1 + maxIndex) % maxIndex || maxIndex;
     if (currentIndex === 1) {
       img.src = `imgs/banner${currentIndex}.png`;
@@ -90,6 +99,7 @@ function play() {
   })
 
 }
+
 window.onload = () =>{
   handleNav();
   play();

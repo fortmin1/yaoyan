@@ -17,6 +17,9 @@ iframe {
 h4 {
     margin: 0;
 }
+.product,.joint,.service,.information,.about {
+    display: none;
+}
 
 /*以下为导航栏样式*/
 header {
@@ -41,12 +44,12 @@ header>nav>ul {
     padding-top: 35px;
     color: #fff;
 }
-.nav-item:hover:not(.mid_logo) {
-    cursor: pointer;
+.nav-item:not(.mid_logo) a:hover {
     color: #cb976c;
 }
 .nav-item.active:not(.mid_logo) {
     background: #fff;
+    cursor: pointer;
 }
 .nav-item.active {
     color: #cb976c;
@@ -72,6 +75,7 @@ header>nav>ul {
     margin: 0;
     background: #FFFFFF;
     color: black;
+    text-align: center;
 }
 .aboutUs_open li {
     height: 60px;
@@ -81,8 +85,9 @@ header>nav>ul {
 .aboutUs_open li:hover {
     background:#91531b;
     color: #FFFFFF;
+    cursor: pointer;
 }
-.aboutUs_open_fa:hover ul {
+.aboutUs_open_fa:hover .aboutUs_open {
     display: block;
 }
 main {
@@ -261,9 +266,6 @@ footer {
 }
 .sort_title ul li:hover {
     color: #cb976c;
-}
-.sort_title ul li:nth-child(1):hover .desc_doughnut{
-    display: block;
 }
 .brand_content_img {
     display: grid;
